@@ -64,6 +64,8 @@
     <Compile Include="IO\DataProvider\IDataProvider.cs" />
     <Compile Include="IO\DataProvider\Implementation\FileDataProvider.cs" />
     <Compile Include="IO\DataWriter\IDataWriter.cs" />
+    <Compile Include="IO\DataWriter\Implementation\FileDataWriter.cs" />
+    <Compile Include="IO\IOHandlers.cs" />
     <Compile Include="Models\Arbeitszeit\Arbeitszeit.cs" />
     <Compile Include="Models\Person\Person.cs" />
     <Compile Include="Models\Person\PType.cs" />
@@ -95,6 +97,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Container\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
