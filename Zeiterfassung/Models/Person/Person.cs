@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Zeiterfassung.Models.Arbeitszeit;
 
 namespace Zeiterfassung.Models.Person
 {
@@ -26,8 +28,10 @@ namespace Zeiterfassung.Models.Person
             Gehalt = gehalt;
         }
 
-        public DateTime Datum { get; }
-        public TimeSpan Zeitspanne { get; set; }
-        public string Beschreibung { get; }
+        public void AddArbeitszeit(DateTime datum, TimeSpan zeitspanne, string beschreibung)
+        {
+            if (!_arbeitszeiten.Any(arbeitszeit => arbeitszeit.Datum == datum && arbeitszeit.Zeitspanne == zeitspanne))
+                _arbeitszeiten.Add(new Arbeitszeit.Arbeitszeit(datum, zeitspanne, beschreibung));
+        }
     }
 }
