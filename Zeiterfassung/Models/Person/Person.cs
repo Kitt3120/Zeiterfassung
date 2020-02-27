@@ -8,7 +8,7 @@ namespace Zeiterfassung.Models.Person
         public string Name { get; }
         public string Vorname { get; }
         public PType Type { get; }
-        public DateTime DateTime { get; }
+        public DateTime Geburtsdatum { get; }
         public string EMail { get; }
         public string PasswordHash { get; }
         public double Gehalt { get; }
@@ -20,10 +20,14 @@ namespace Zeiterfassung.Models.Person
             Name = name;
             Vorname = vorname;
             Type = type;
-            DateTime = dateTime;
+            Geburtsdatum = dateTime.Date; //Grabs only the Date, resets time to 00:00:00
             EMail = eMail;
             PasswordHash = passwordHash;
             Gehalt = gehalt;
         }
+
+        public DateTime Datum { get; }
+        public TimeSpan Zeitspanne { get; set; }
+        public string Beschreibung { get; }
     }
 }
