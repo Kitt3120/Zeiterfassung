@@ -30,8 +30,14 @@ namespace Zeiterfassung.Models.Person
 
         public void AddArbeitszeit(DateTime datum, TimeSpan zeitspanne, string beschreibung)
         {
-            if (!_arbeitszeiten.Any(arbeitszeit => arbeitszeit.Datum == datum && arbeitszeit.Zeitspanne == zeitspanne))
+            if (!_arbeitszeiten.Any(arbeitszeit => arbeitszeit.Datum == datum.Date && arbeitszeit.Zeitspanne == zeitspanne))
                 _arbeitszeiten.Add(new Arbeitszeit.Arbeitszeit(datum, zeitspanne, beschreibung));
         }
+
+        public void RemoveArbeitszeit(DateTime datum) => _arbeitszeiten.RemoveAll(arbeitszeit => arbeitszeit.Datum == datum.Date);
+
+        public void RemoveArbeitszeit(DateTime datum, TimeSpan zeitspanne) => _arbeitszeiten.RemoveAll(arbeitszeit => arbeitszeit.Datum == datum.Date && arbeitszeit.Zeitspanne == zeitspanne);
+
+        public void RemoveArbeitszeiten() => _arbeitszeiten.Clear();
     }
 }
