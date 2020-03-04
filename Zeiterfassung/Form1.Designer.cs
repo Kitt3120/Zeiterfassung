@@ -78,7 +78,7 @@
             this.groupBoxPersonManagement.Cursor = System.Windows.Forms.Cursors.Default;
             this.groupBoxPersonManagement.Location = new System.Drawing.Point(3, 3);
             this.groupBoxPersonManagement.Name = "groupBoxPersonManagement";
-            this.groupBoxPersonManagement.Size = new System.Drawing.Size(380, 251);
+            this.groupBoxPersonManagement.Size = new System.Drawing.Size(394, 258);
             this.groupBoxPersonManagement.TabIndex = 0;
             this.groupBoxPersonManagement.TabStop = false;
             this.groupBoxPersonManagement.Text = "Personenmanagement";
@@ -86,8 +86,9 @@
             // 
             // checkBoxPasswortZeigen
             // 
+            this.checkBoxPasswortZeigen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxPasswortZeigen.AutoSize = true;
-            this.checkBoxPasswortZeigen.Location = new System.Drawing.Point(320, 99);
+            this.checkBoxPasswortZeigen.Location = new System.Drawing.Point(323, 99);
             this.checkBoxPasswortZeigen.Name = "checkBoxPasswortZeigen";
             this.checkBoxPasswortZeigen.Size = new System.Drawing.Size(59, 17);
             this.checkBoxPasswortZeigen.TabIndex = 15;
@@ -98,9 +99,11 @@
             // 
             // buttonAdd
             // 
+            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAdd.Location = new System.Drawing.Point(6, 222);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(164, 23);
+            this.buttonAdd.Size = new System.Drawing.Size(167, 23);
             this.buttonAdd.TabIndex = 14;
             this.buttonAdd.Text = "Anlegen";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -108,11 +111,13 @@
             // 
             // comboBoxPosition
             // 
+            this.comboBoxPosition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPosition.FormattingEnabled = true;
             this.comboBoxPosition.Location = new System.Drawing.Point(123, 175);
             this.comboBoxPosition.Name = "comboBoxPosition";
-            this.comboBoxPosition.Size = new System.Drawing.Size(251, 21);
+            this.comboBoxPosition.Size = new System.Drawing.Size(254, 21);
             this.comboBoxPosition.TabIndex = 13;
             // 
             // labelPosition
@@ -135,9 +140,11 @@
             // 
             // textBoxGehalt
             // 
+            this.textBoxGehalt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxGehalt.Location = new System.Drawing.Point(123, 149);
             this.textBoxGehalt.Name = "textBoxGehalt";
-            this.textBoxGehalt.Size = new System.Drawing.Size(251, 20);
+            this.textBoxGehalt.Size = new System.Drawing.Size(254, 20);
             this.textBoxGehalt.TabIndex = 10;
             // 
             // labelGeburtsdatum
@@ -151,9 +158,11 @@
             // 
             // textBoxGeburtsdatum
             // 
+            this.textBoxGeburtsdatum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxGeburtsdatum.Location = new System.Drawing.Point(123, 123);
             this.textBoxGeburtsdatum.Name = "textBoxGeburtsdatum";
-            this.textBoxGeburtsdatum.Size = new System.Drawing.Size(251, 20);
+            this.textBoxGeburtsdatum.Size = new System.Drawing.Size(254, 20);
             this.textBoxGeburtsdatum.TabIndex = 8;
             // 
             // labelPasswort
@@ -167,10 +176,12 @@
             // 
             // textBoxPasswort
             // 
+            this.textBoxPasswort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPasswort.Location = new System.Drawing.Point(123, 97);
             this.textBoxPasswort.Name = "textBoxPasswort";
             this.textBoxPasswort.PasswordChar = '*';
-            this.textBoxPasswort.Size = new System.Drawing.Size(191, 20);
+            this.textBoxPasswort.Size = new System.Drawing.Size(194, 20);
             this.textBoxPasswort.TabIndex = 6;
             // 
             // labelEmail
@@ -184,23 +195,29 @@
             // 
             // textBoxEmail
             // 
+            this.textBoxEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxEmail.Location = new System.Drawing.Point(123, 71);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(251, 20);
+            this.textBoxEmail.Size = new System.Drawing.Size(254, 20);
             this.textBoxEmail.TabIndex = 4;
             // 
             // textBoxVorName
             // 
+            this.textBoxVorName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxVorName.Location = new System.Drawing.Point(123, 45);
             this.textBoxVorName.Name = "textBoxVorName";
-            this.textBoxVorName.Size = new System.Drawing.Size(251, 20);
+            this.textBoxVorName.Size = new System.Drawing.Size(254, 20);
             this.textBoxVorName.TabIndex = 3;
             // 
             // textBoxName
             // 
+            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxName.Location = new System.Drawing.Point(123, 19);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(251, 20);
+            this.textBoxName.Size = new System.Drawing.Size(254, 20);
             this.textBoxName.TabIndex = 2;
             // 
             // labelVorname
@@ -228,7 +245,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxTimeManagement.Location = new System.Drawing.Point(3, 3);
             this.groupBoxTimeManagement.Name = "groupBoxTimeManagement";
-            this.groupBoxTimeManagement.Size = new System.Drawing.Size(380, 251);
+            this.groupBoxTimeManagement.Size = new System.Drawing.Size(373, 258);
             this.groupBoxTimeManagement.TabIndex = 1;
             this.groupBoxTimeManagement.TabStop = false;
             this.groupBoxTimeManagement.Text = "Arbeitszeitmanagement";
@@ -253,16 +270,17 @@
             // 
             this.splitContainerManagement.Panel2.Controls.Add(this.groupBoxTimeManagement);
             this.splitContainerManagement.Panel2MinSize = 50;
-            this.splitContainerManagement.Size = new System.Drawing.Size(776, 257);
-            this.splitContainerManagement.SplitterDistance = 386;
+            this.splitContainerManagement.Size = new System.Drawing.Size(760, 261);
+            this.splitContainerManagement.SplitterDistance = 388;
             this.splitContainerManagement.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 507);
+            this.ClientSize = new System.Drawing.Size(784, 511);
             this.Controls.Add(this.splitContainerManagement);
+            this.MinimumSize = new System.Drawing.Size(800, 550);
             this.Name = "Form1";
             this.Text = "Fehlzeitenerfassung";
             this.Load += new System.EventHandler(this.Form1_Load);
