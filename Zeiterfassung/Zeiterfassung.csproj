@@ -64,6 +64,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="IO\DataProvider\DataProviders.cs" />
     <Compile Include="IO\DataProvider\IDataProvider.cs" />
     <Compile Include="IO\DataProvider\Implementation\FileDataProvider.cs" />
@@ -73,12 +79,17 @@
     <Compile Include="IO\IOHandlers.cs" />
     <Compile Include="Models\Arbeitszeit\Arbeitszeit.cs" />
     <Compile Include="Models\Person\Person.cs" />
-    <Compile Include="Models\Person\PType.cs" />
+    <Compile Include="Models\Person\Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\Storage.cs" />
+    <Compile Include="Storage\StorageContainer.cs" />
     <Compile Include="Utils\HashUtils.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -108,7 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Personen.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
