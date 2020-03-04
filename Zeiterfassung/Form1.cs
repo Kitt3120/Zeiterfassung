@@ -1,4 +1,10 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Windows.Forms;
+using Zeiterfassung.CSV;
+using Zeiterfassung.IO.DataProvider;
+using Zeiterfassung.Models.Person;
 
 namespace Zeiterfassung
 {
