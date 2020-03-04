@@ -22,7 +22,7 @@ namespace Zeiterfassung.IO.DataProvider.Implementation
             using (StreamReader streamReader = new StreamReader(File.OpenRead(key)))
                 s = await streamReader.ReadToEndAsync();
 
-            return s.Split(Environment.NewLine.ToCharArray());
+            return s.Split(Environment.NewLine.ToCharArray()).Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
         }
     }
 }
