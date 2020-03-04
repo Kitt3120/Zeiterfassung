@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zeiterfassung.CSV
 {
-    internal interface ICSVHandler<T>
+    public interface ICSVHandler<T>
     {
         T Parse(string line);
 

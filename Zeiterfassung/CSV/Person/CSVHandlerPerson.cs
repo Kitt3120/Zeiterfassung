@@ -7,7 +7,7 @@ using Zeiterfassung.Models.Person;
 
 namespace Zeiterfassung.CSV.Person
 {
-    internal class CSVHandlerPerson : ICSVHandler<Models.Person.Person>
+    public class CSVHandlerPerson : ICSVHandler<Models.Person.Person>
     {
         public Models.Person.Person Parse(string line)
         {
@@ -56,7 +56,7 @@ namespace Zeiterfassung.CSV.Person
         public string Revert(Models.Person.Person obj)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{obj.Name};{obj.Vorname};{obj.Type.ToString()};{obj.Geburtsdatum.ToString()};{obj.Email};{obj.PasswordHash};{obj.Gehalt.ToString()}");
+            sb.Append($"{obj.Name};{obj.Vorname};{obj.Type.ToString()};{obj.Geburtsdatum.ToString("dd.MM.yyyy")};{obj.Email};{obj.PasswordHash};{obj.Gehalt.ToString()}");
 
             foreach (Arbeitszeit arbeitszeit in obj.Arbeitszeiten)
                 sb.Append($";{arbeitszeit.Datum.ToString()};{arbeitszeit.Zeitspanne.Ticks};{arbeitszeit.Beschreibung}");

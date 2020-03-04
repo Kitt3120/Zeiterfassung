@@ -2,10 +2,10 @@
 
 namespace Zeiterfassung.IO.DataProvider
 {
-    public interface IDataProvider
+    public interface IDataProvider<T>
     {
-        T Provide<T>(string key, string[] options = null);
+        T Provide(string key, string[] options = null);
 
-        Task<T> ProvideAsync<T>(string key, string[] options = null);
+        Task<T> ProvideAsync(string key, string[] options = null);
     }
 }
