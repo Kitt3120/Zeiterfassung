@@ -10,21 +10,26 @@ namespace Zeiterfassung.Models.Person
     {
         public string Name { get; }
         public string Vorname { get; }
-        public PType Type { get; }
+        public Position Position { get; }
         public DateTime Geburtsdatum { get; }
         public string Email { get; }
         public string PasswordHash { get; }
         public double Gehalt { get; }
 
+        public override string ToString()
+        {
+            return $"{Name} {Vorname}";
+        }
+
         public ReadOnlyCollection<Arbeitszeit.Arbeitszeit> Arbeitszeiten { get => _arbeitszeiten.AsReadOnly(); }
 
         private List<Arbeitszeit.Arbeitszeit> _arbeitszeiten;
 
-        public Person(string name, string vorname, PType type, DateTime geburtsdatum, string email, string passwordHash, double gehalt)
+        public Person(string name, string vorname, Position position, DateTime geburtsdatum, string email, string passwordHash, double gehalt)
         {
             Name = name;
             Vorname = vorname;
-            Type = type;
+            Position = position;
             Geburtsdatum = geburtsdatum.Date; //Grabs only the Date, resets time to 00:00:00
             Email = email;
             PasswordHash = passwordHash;

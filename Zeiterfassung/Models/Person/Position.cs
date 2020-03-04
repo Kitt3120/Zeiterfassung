@@ -1,6 +1,6 @@
 ﻿namespace Zeiterfassung.Models.Person
 {
-    public enum PType
+    public enum Position
     {
         Mitarbeiter, Manager
     }

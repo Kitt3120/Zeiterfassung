@@ -21,8 +21,8 @@ namespace Zeiterfassung.CSV.Person
             string name = split[0];
             string vorname = split[1];
 
-            PType type;
-            if (!Enum.TryParse(split[2], out type))
+            Position position;
+            if (!Enum.TryParse(split[2], out position))
                 throw new ArgumentException("Line did not contain a valid PType at position 3 [2]");
 
             DateTime geburtsdatum = Convert.ToDateTime(split[3]);
@@ -33,7 +33,7 @@ namespace Zeiterfassung.CSV.Person
             if (!double.TryParse(split[6], out gehalt))
                 throw new ArgumentException("Line did not contain a valid value for \"Lohn\" at position 7 [6]");
 
-            Models.Person.Person person = new Models.Person.Person(name, vorname, type, geburtsdatum, email, passwordHash, gehalt);
+            Models.Person.Person person = new Models.Person.Person(name, vorname, position, geburtsdatum, email, passwordHash, gehalt);
             for (int i = 7; i < split.Length; i += 3)
             {
                 DateTime datum = Convert.ToDateTime(split[i]);
@@ -51,12 +51,12 @@ namespace Zeiterfassung.CSV.Person
             return person;
         }
 
-        public List<Models.Person.Person> ParseAll(string[] lines) => lines.Select(line => Parse(line)).ToList();
+        public Models.Person.Person[] ParseAll(string[] lines) => lines.Select(line => Parse(line)).ToArray();
 
         public string Revert(Models.Person.Person obj)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{obj.Name};{obj.Vorname};{obj.Type.ToString()};{obj.Geburtsdatum.ToString("dd.MM.yyyy")};{obj.Email};{obj.PasswordHash};{obj.Gehalt.ToString()}");
+            sb.Append($"{obj.Name};{obj.Vorname};{obj.Position.ToString()};{obj.Geburtsdatum.ToString("dd.MM.yyyy")};{obj.Email};{obj.PasswordHash};{obj.Gehalt.ToString()}");
 
             foreach (Arbeitszeit arbeitszeit in obj.Arbeitszeiten)
                 sb.Append($";{arbeitszeit.Datum.ToString()};{arbeitszeit.Zeitspanne.Ticks};{arbeitszeit.Beschreibung}");
@@ -64,6 +64,6 @@ namespace Zeiterfassung.CSV.Person
             return sb.ToString();
         }
 
-        public string[] RevertAll(List<Models.Person.Person> objs) => objs.Select(obj => Revert(obj)).ToArray();
+        public string[] RevertAll(Models.Person.Person[] objs) => objs.Select(obj => Revert(obj)).ToArray();
     }
 }
