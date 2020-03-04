@@ -57,14 +57,17 @@
   <ItemGroup>
     <Compile Include="CSV\ICSVHandler.cs" />
     <Compile Include="CSV\Person\CSVHandlerPerson.cs" />
+    <Compile Include="CSV\CSVHandlers.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="IO\DataProvider\DataProviders.cs" />
     <Compile Include="IO\DataProvider\IDataProvider.cs" />
     <Compile Include="IO\DataProvider\Implementation\FileDataProvider.cs" />
+    <Compile Include="IO\DataWriter\DataWriters.cs" />
     <Compile Include="IO\DataWriter\IDataWriter.cs" />
     <Compile Include="IO\DataWriter\Implementation\FileDataWriter.cs" />
     <Compile Include="IO\IOHandlers.cs" />
@@ -105,7 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Personen.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
