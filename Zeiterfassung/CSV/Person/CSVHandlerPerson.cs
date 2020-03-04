@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Zeiterfassung.Models.Arbeitszeit;
 using Zeiterfassung.Models.Person;
@@ -9,6 +11,9 @@ namespace Zeiterfassung.CSV.Person
     {
         public Models.Person.Person Parse(string line)
         {
+            if (string.IsNullOrWhiteSpace(line))
+                return null;
+
             if (line.EndsWith(";"))
                 line = line.Substring(0, line.Length - 1);
             string[] split = line.Split(';');
@@ -46,6 +51,8 @@ namespace Zeiterfassung.CSV.Person
             return person;
         }
 
+        public List<Models.Person.Person> ParseAll(string[] lines) => lines.Select(line => Parse(line)).ToList();
+
         public string Revert(Models.Person.Person obj)
         {
             StringBuilder sb = new StringBuilder();
@@ -56,5 +63,7 @@ namespace Zeiterfassung.CSV.Person
 
             return sb.ToString();
         }
+
+        public string[] RevertAll(List<Models.Person.Person> objs) => objs.Select(obj => Revert(obj)).ToArray();
     }
 }

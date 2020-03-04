@@ -10,6 +10,10 @@ namespace Zeiterfassung.CSV
     {
         T Parse(string line);
 
+        List<T> ParseAll(string[] lines);
+
         string Revert(T obj);
+
+        string[] RevertAll(List<T> objs);
     }
 }
