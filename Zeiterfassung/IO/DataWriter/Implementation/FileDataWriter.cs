@@ -10,7 +10,7 @@ namespace Zeiterfassung.IO.DataWriter.Implementation
             if (!Directory.Exists(Path.GetDirectoryName(key)))
                 throw new FileNotFoundException($"The file {Path.GetFileName(key)} can't be written to because {Path.GetDirectoryName(key)} does not exist.");
 
-            using (StreamWriter streamWriter = new StreamWriter(File.OpenRead(key)))
+            using (StreamWriter streamWriter = new StreamWriter(File.OpenWrite(key)))
                 streamWriter.Write(obj);
         }
 
@@ -19,9 +19,9 @@ namespace Zeiterfassung.IO.DataWriter.Implementation
             if (!Directory.Exists(Path.GetDirectoryName(key)))
                 throw new FileNotFoundException($"The file {Path.GetFileName(key)} can't be written to because {Path.GetDirectoryName(key)} does not exist.");
 
-            using (StreamWriter streamWriter = new StreamWriter(File.OpenRead(key)))
+            using (StreamWriter streamWriter = new StreamWriter(File.OpenWrite(key)))
                 foreach (string line in obj)
-                    streamWriter.Write(line);
+                    streamWriter.WriteLine(line);
         }
 
         public async Task WriteAsync(string key, string obj, string[] options = null)
@@ -29,7 +29,7 @@ namespace Zeiterfassung.IO.DataWriter.Implementation
             if (!Directory.Exists(Path.GetDirectoryName(key)))
                 throw new FileNotFoundException($"The file {Path.GetFileName(key)} can't be written to because {Path.GetDirectoryName(key)} does not exist.");
 
-            using (StreamWriter streamWriter = new StreamWriter(File.OpenRead(key)))
+            using (StreamWriter streamWriter = new StreamWriter(File.OpenWrite(key)))
                 await streamWriter.WriteAsync(obj);
         }
 
@@ -38,9 +38,9 @@ namespace Zeiterfassung.IO.DataWriter.Implementation
             if (!Directory.Exists(Path.GetDirectoryName(key)))
                 throw new FileNotFoundException($"The file {Path.GetFileName(key)} can't be written to because {Path.GetDirectoryName(key)} does not exist.");
 
-            using (StreamWriter streamWriter = new StreamWriter(File.OpenRead(key)))
+            using (StreamWriter streamWriter = new StreamWriter(File.OpenWrite(key)))
                 foreach (string line in obj)
-                    await streamWriter.WriteAsync(line);
+                    await streamWriter.WriteLineAsync(line);
         }
     }
 }
