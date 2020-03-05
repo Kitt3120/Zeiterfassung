@@ -37,15 +37,19 @@ namespace Zeiterfassung.Models.Person
             _arbeitszeiten = new List<Arbeitszeit.Arbeitszeit>();
         }
 
-        public void AddArbeitszeit(DateTime datum, TimeSpan zeitspanne, string beschreibung)
+        public void AddArbeitszeit(DateTime datum, DateTime anfang, DateTime ende, string beschreibung)
         {
-            if (!_arbeitszeiten.Any(arbeitszeit => arbeitszeit.Datum == datum.Date && arbeitszeit.Zeitspanne == zeitspanne))
-                _arbeitszeiten.Add(new Arbeitszeit.Arbeitszeit(datum, zeitspanne, beschreibung));
+            if (!_arbeitszeiten.Any(arbeitszeit => arbeitszeit.Datum == datum.Date && arbeitszeit.Anfang == anfang && arbeitszeit.Ende == ende))
+                _arbeitszeiten.Add(new Arbeitszeit.Arbeitszeit(datum, anfang, ende, beschreibung));
         }
 
-        public void RemoveArbeitszeit(DateTime datum) => _arbeitszeiten.RemoveAll(arbeitszeit => arbeitszeit.Datum == datum.Date);
+        public void RemoveArbeitszeit(Arbeitszeit.Arbeitszeit arbeitszeit) => _arbeitszeiten.Remove(arbeitszeit);
 
-        public void RemoveArbeitszeit(DateTime datum, TimeSpan zeitspanne) => _arbeitszeiten.RemoveAll(arbeitszeit => arbeitszeit.Datum == datum.Date && arbeitszeit.Zeitspanne == zeitspanne);
+        public void RemoveArbeitszeit(int index) => _arbeitszeiten.RemoveAt(index);
+
+        public void RemoveArbeitszeiten(DateTime datum) => _arbeitszeiten.RemoveAll(arbeitszeit => arbeitszeit.Datum == datum.Date);
+
+        public void RemoveArbeitszeiten(DateTime datum, DateTime anfang, DateTime ende) => _arbeitszeiten.RemoveAll(arbeitszeit => arbeitszeit.Datum == datum.Date && arbeitszeit.Anfang == anfang && arbeitszeit.Ende == ende);
 
         public void RemoveArbeitszeiten() => _arbeitszeiten.Clear();
     }
