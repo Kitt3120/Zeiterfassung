@@ -34,18 +34,14 @@ namespace Zeiterfassung.CSV.Person
                 throw new ArgumentException("Line did not contain a valid value for \"Lohn\" at position 7 [6]");
 
             Models.Person.Person person = new Models.Person.Person(name, vorname, position, geburtsdatum, email, passwordHash, gehalt);
-            for (int i = 7; i < split.Length; i += 3)
+            for (int i = 7; i < split.Length; i += 4)
             {
                 DateTime datum = Convert.ToDateTime(split[i]);
+                DateTime anfang = Convert.ToDateTime(split[i + 1]);
+                DateTime ende = Convert.ToDateTime(split[i + 2]);
+                string beschreibung = split[i + 3];
 
-                long ticks;
-                if (!long.TryParse(split[i + 1], out ticks))
-                    throw new ArgumentException($"Line did not contain a valid value for \"Ticks\" at position {i + 2} [{i + 1}]");
-
-                TimeSpan zeitspanne = new TimeSpan(ticks);
-                string beschreibung = split[i + 2];
-
-                person.AddArbeitszeit(datum, zeitspanne, beschreibung);
+                person.AddArbeitszeit(datum, anfang, ende, beschreibung);
             }
 
             return person;
@@ -59,7 +55,7 @@ namespace Zeiterfassung.CSV.Person
             sb.Append($"{obj.Name};{obj.Vorname};{obj.Position.ToString()};{obj.Geburtsdatum.ToString("dd.MM.yyyy")};{obj.Email};{obj.PasswordHash};{obj.Gehalt.ToString()}");
 
             foreach (Arbeitszeit arbeitszeit in obj.Arbeitszeiten)
-                sb.Append($";{arbeitszeit.Datum.ToString()};{arbeitszeit.Zeitspanne.Ticks};{arbeitszeit.Beschreibung}");
+                sb.Append($";{arbeitszeit.Datum.ToString("dd.MM.yyyy")};{arbeitszeit.Anfang.ToString()};{arbeitszeit.Ende.ToString()};{arbeitszeit.Beschreibung}");
 
             return sb.ToString();
         }
