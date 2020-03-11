@@ -182,6 +182,26 @@ namespace Zeiterfassung
             checkBoxPasswortZeigen.Checked = false;
         }
 
+        private void checkBoxPasswortZeigen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space || e.KeyCode == Keys.Enter)
+            {
+                e.Handled = false;
+                textBoxPasswort.PasswordChar = '\0';
+                checkBoxPasswortZeigen.Checked = true;
+            }
+        }
+
+        private void checkBoxPasswortZeigen_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space || e.KeyCode == Keys.Enter)
+            {
+                e.Handled = false;
+                textBoxPasswort.PasswordChar = '*';
+                checkBoxPasswortZeigen.Checked = false;
+            }
+        }
+
         //Time Management
 
         private async void buttonArbeitszeitHinzufügen_Click(object sender, EventArgs e)

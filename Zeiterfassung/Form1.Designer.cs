@@ -115,6 +115,8 @@
             this.checkBoxPasswortZeigen.TabIndex = 5;
             this.checkBoxPasswortZeigen.Text = "Zeigen";
             this.checkBoxPasswortZeigen.UseVisualStyleBackColor = true;
+            this.checkBoxPasswortZeigen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.checkBoxPasswortZeigen_KeyDown);
+            this.checkBoxPasswortZeigen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkBoxPasswortZeigen_KeyUp);
             this.checkBoxPasswortZeigen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.checkBoxPasswortZeigen_MouseDown);
             this.checkBoxPasswortZeigen.MouseUp += new System.Windows.Forms.MouseEventHandler(this.checkBoxPasswortZeigen_MouseUp);
             // 
