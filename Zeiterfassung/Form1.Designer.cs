@@ -30,7 +30,7 @@
         {
             this.groupBoxPersonManagement = new System.Windows.Forms.GroupBox();
             this.checkBoxPasswortZeigen = new System.Windows.Forms.CheckBox();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonPersonHinzufügen = new System.Windows.Forms.Button();
             this.comboBoxPosition = new System.Windows.Forms.ComboBox();
             this.labelPosition = new System.Windows.Forms.Label();
             this.labelGehalt = new System.Windows.Forms.Label();
@@ -46,12 +46,33 @@
             this.labelVorname = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.groupBoxTimeManagement = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonBisJetzt = new System.Windows.Forms.Button();
+            this.buttonArbeitszeitHinzufügen = new System.Windows.Forms.Button();
+            this.buttonDatumHeute = new System.Windows.Forms.Button();
+            this.textBoxBeschreibung = new System.Windows.Forms.TextBox();
+            this.labelBeschreibung = new System.Windows.Forms.Label();
+            this.textBoxBis = new System.Windows.Forms.TextBox();
+            this.labelBis = new System.Windows.Forms.Label();
+            this.textBoxVon = new System.Windows.Forms.TextBox();
+            this.labelVon = new System.Windows.Forms.Label();
+            this.textBoxDatum = new System.Windows.Forms.TextBox();
+            this.labelDatum = new System.Windows.Forms.Label();
             this.splitContainerManagement = new System.Windows.Forms.SplitContainer();
+            this.textBoxZeitausgabe = new System.Windows.Forms.TextBox();
+            this.groupBoxZeitausgabe = new System.Windows.Forms.GroupBox();
+            this.checkBoxZeitausgabeAlleMonate = new System.Windows.Forms.CheckBox();
+            this.comboBoxZeitausgabeMonat = new System.Windows.Forms.ComboBox();
+            this.checkBoxZeitausgabeAlleMitarbeiter = new System.Windows.Forms.CheckBox();
+            this.comboBoxZeitausgabeMitarbeiter = new System.Windows.Forms.ComboBox();
+            this.buttonLogout = new System.Windows.Forms.Button();
             this.groupBoxPersonManagement.SuspendLayout();
+            this.groupBoxTimeManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerManagement)).BeginInit();
             this.splitContainerManagement.Panel1.SuspendLayout();
             this.splitContainerManagement.Panel2.SuspendLayout();
             this.splitContainerManagement.SuspendLayout();
+            this.groupBoxZeitausgabe.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxPersonManagement
@@ -60,7 +81,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxPersonManagement.Controls.Add(this.checkBoxPasswortZeigen);
-            this.groupBoxPersonManagement.Controls.Add(this.buttonAdd);
+            this.groupBoxPersonManagement.Controls.Add(this.buttonPersonHinzufügen);
             this.groupBoxPersonManagement.Controls.Add(this.comboBoxPosition);
             this.groupBoxPersonManagement.Controls.Add(this.labelPosition);
             this.groupBoxPersonManagement.Controls.Add(this.labelGehalt);
@@ -97,17 +118,17 @@
             this.checkBoxPasswortZeigen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.checkBoxPasswortZeigen_MouseDown);
             this.checkBoxPasswortZeigen.MouseUp += new System.Windows.Forms.MouseEventHandler(this.checkBoxPasswortZeigen_MouseUp);
             // 
-            // buttonAdd
+            // buttonPersonHinzufügen
             // 
-            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.buttonPersonHinzufügen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.Location = new System.Drawing.Point(6, 222);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(167, 23);
-            this.buttonAdd.TabIndex = 14;
-            this.buttonAdd.Text = "Anlegen";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonPersonHinzufügen.Location = new System.Drawing.Point(9, 222);
+            this.buttonPersonHinzufügen.Name = "buttonPersonHinzufügen";
+            this.buttonPersonHinzufügen.Size = new System.Drawing.Size(167, 23);
+            this.buttonPersonHinzufügen.TabIndex = 14;
+            this.buttonPersonHinzufügen.Text = "Anlegen";
+            this.buttonPersonHinzufügen.UseVisualStyleBackColor = true;
+            this.buttonPersonHinzufügen.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // comboBoxPosition
             // 
@@ -243,6 +264,18 @@
             this.groupBoxTimeManagement.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxTimeManagement.Controls.Add(this.button1);
+            this.groupBoxTimeManagement.Controls.Add(this.buttonBisJetzt);
+            this.groupBoxTimeManagement.Controls.Add(this.buttonArbeitszeitHinzufügen);
+            this.groupBoxTimeManagement.Controls.Add(this.buttonDatumHeute);
+            this.groupBoxTimeManagement.Controls.Add(this.textBoxBeschreibung);
+            this.groupBoxTimeManagement.Controls.Add(this.labelBeschreibung);
+            this.groupBoxTimeManagement.Controls.Add(this.textBoxBis);
+            this.groupBoxTimeManagement.Controls.Add(this.labelBis);
+            this.groupBoxTimeManagement.Controls.Add(this.textBoxVon);
+            this.groupBoxTimeManagement.Controls.Add(this.labelVon);
+            this.groupBoxTimeManagement.Controls.Add(this.textBoxDatum);
+            this.groupBoxTimeManagement.Controls.Add(this.labelDatum);
             this.groupBoxTimeManagement.Location = new System.Drawing.Point(3, 3);
             this.groupBoxTimeManagement.Name = "groupBoxTimeManagement";
             this.groupBoxTimeManagement.Size = new System.Drawing.Size(373, 258);
@@ -251,10 +284,129 @@
             this.groupBoxTimeManagement.Text = "Arbeitszeitmanagement";
             this.groupBoxTimeManagement.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(308, 45);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(54, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "08:00";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonBisJetzt
+            // 
+            this.buttonBisJetzt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBisJetzt.Location = new System.Drawing.Point(308, 71);
+            this.buttonBisJetzt.Name = "buttonBisJetzt";
+            this.buttonBisJetzt.Size = new System.Drawing.Size(54, 23);
+            this.buttonBisJetzt.TabIndex = 10;
+            this.buttonBisJetzt.Text = "Jetzt";
+            this.buttonBisJetzt.UseVisualStyleBackColor = true;
+            this.buttonBisJetzt.Click += new System.EventHandler(this.buttonBisJetzt_Click);
+            // 
+            // buttonArbeitszeitHinzufügen
+            // 
+            this.buttonArbeitszeitHinzufügen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonArbeitszeitHinzufügen.Location = new System.Drawing.Point(11, 222);
+            this.buttonArbeitszeitHinzufügen.Name = "buttonArbeitszeitHinzufügen";
+            this.buttonArbeitszeitHinzufügen.Size = new System.Drawing.Size(167, 23);
+            this.buttonArbeitszeitHinzufügen.TabIndex = 9;
+            this.buttonArbeitszeitHinzufügen.Text = "Hinzufügen";
+            this.buttonArbeitszeitHinzufügen.UseVisualStyleBackColor = true;
+            this.buttonArbeitszeitHinzufügen.Click += new System.EventHandler(this.buttonArbeitszeitHinzufügen_Click);
+            // 
+            // buttonDatumHeute
+            // 
+            this.buttonDatumHeute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDatumHeute.Location = new System.Drawing.Point(308, 17);
+            this.buttonDatumHeute.Name = "buttonDatumHeute";
+            this.buttonDatumHeute.Size = new System.Drawing.Size(54, 23);
+            this.buttonDatumHeute.TabIndex = 8;
+            this.buttonDatumHeute.Text = "Heute";
+            this.buttonDatumHeute.UseVisualStyleBackColor = true;
+            this.buttonDatumHeute.Click += new System.EventHandler(this.buttonDatumHeute_Click);
+            // 
+            // textBoxBeschreibung
+            // 
+            this.textBoxBeschreibung.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxBeschreibung.Location = new System.Drawing.Point(118, 100);
+            this.textBoxBeschreibung.Multiline = true;
+            this.textBoxBeschreibung.Name = "textBoxBeschreibung";
+            this.textBoxBeschreibung.Size = new System.Drawing.Size(244, 92);
+            this.textBoxBeschreibung.TabIndex = 7;
+            // 
+            // labelBeschreibung
+            // 
+            this.labelBeschreibung.AutoSize = true;
+            this.labelBeschreibung.Location = new System.Drawing.Point(8, 103);
+            this.labelBeschreibung.Name = "labelBeschreibung";
+            this.labelBeschreibung.Size = new System.Drawing.Size(72, 13);
+            this.labelBeschreibung.TabIndex = 6;
+            this.labelBeschreibung.Text = "Beschreibung";
+            // 
+            // textBoxBis
+            // 
+            this.textBoxBis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxBis.Location = new System.Drawing.Point(118, 71);
+            this.textBoxBis.Name = "textBoxBis";
+            this.textBoxBis.Size = new System.Drawing.Size(184, 20);
+            this.textBoxBis.TabIndex = 5;
+            // 
+            // labelBis
+            // 
+            this.labelBis.AutoSize = true;
+            this.labelBis.Location = new System.Drawing.Point(8, 74);
+            this.labelBis.Name = "labelBis";
+            this.labelBis.Size = new System.Drawing.Size(21, 13);
+            this.labelBis.TabIndex = 4;
+            this.labelBis.Text = "Bis";
+            // 
+            // textBoxVon
+            // 
+            this.textBoxVon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxVon.Location = new System.Drawing.Point(118, 45);
+            this.textBoxVon.Name = "textBoxVon";
+            this.textBoxVon.Size = new System.Drawing.Size(184, 20);
+            this.textBoxVon.TabIndex = 3;
+            // 
+            // labelVon
+            // 
+            this.labelVon.AutoSize = true;
+            this.labelVon.Location = new System.Drawing.Point(8, 48);
+            this.labelVon.Name = "labelVon";
+            this.labelVon.Size = new System.Drawing.Size(26, 13);
+            this.labelVon.TabIndex = 2;
+            this.labelVon.Text = "Von";
+            // 
+            // textBoxDatum
+            // 
+            this.textBoxDatum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDatum.Location = new System.Drawing.Point(118, 19);
+            this.textBoxDatum.Name = "textBoxDatum";
+            this.textBoxDatum.Size = new System.Drawing.Size(184, 20);
+            this.textBoxDatum.TabIndex = 1;
+            // 
+            // labelDatum
+            // 
+            this.labelDatum.AutoSize = true;
+            this.labelDatum.Location = new System.Drawing.Point(8, 22);
+            this.labelDatum.Name = "labelDatum";
+            this.labelDatum.Size = new System.Drawing.Size(38, 13);
+            this.labelDatum.TabIndex = 0;
+            this.labelDatum.Text = "Datum";
+            // 
             // splitContainerManagement
             // 
-            this.splitContainerManagement.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.splitContainerManagement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainerManagement.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainerManagement.IsSplitterFixed = true;
@@ -274,11 +426,102 @@
             this.splitContainerManagement.SplitterDistance = 388;
             this.splitContainerManagement.TabIndex = 2;
             // 
+            // textBoxZeitausgabe
+            // 
+            this.textBoxZeitausgabe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxZeitausgabe.Location = new System.Drawing.Point(6, 46);
+            this.textBoxZeitausgabe.Multiline = true;
+            this.textBoxZeitausgabe.Name = "textBoxZeitausgabe";
+            this.textBoxZeitausgabe.ReadOnly = true;
+            this.textBoxZeitausgabe.Size = new System.Drawing.Size(540, 139);
+            this.textBoxZeitausgabe.TabIndex = 12;
+            // 
+            // groupBoxZeitausgabe
+            // 
+            this.groupBoxZeitausgabe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxZeitausgabe.Controls.Add(this.checkBoxZeitausgabeAlleMonate);
+            this.groupBoxZeitausgabe.Controls.Add(this.comboBoxZeitausgabeMonat);
+            this.groupBoxZeitausgabe.Controls.Add(this.checkBoxZeitausgabeAlleMitarbeiter);
+            this.groupBoxZeitausgabe.Controls.Add(this.comboBoxZeitausgabeMitarbeiter);
+            this.groupBoxZeitausgabe.Controls.Add(this.textBoxZeitausgabe);
+            this.groupBoxZeitausgabe.Location = new System.Drawing.Point(12, 279);
+            this.groupBoxZeitausgabe.Name = "groupBoxZeitausgabe";
+            this.groupBoxZeitausgabe.Size = new System.Drawing.Size(760, 191);
+            this.groupBoxZeitausgabe.TabIndex = 13;
+            this.groupBoxZeitausgabe.TabStop = false;
+            this.groupBoxZeitausgabe.Text = "Zeitausgabe";
+            // 
+            // checkBoxZeitausgabeAlleMonate
+            // 
+            this.checkBoxZeitausgabeAlleMonate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxZeitausgabeAlleMonate.AutoSize = true;
+            this.checkBoxZeitausgabeAlleMonate.Location = new System.Drawing.Point(552, 48);
+            this.checkBoxZeitausgabeAlleMonate.Name = "checkBoxZeitausgabeAlleMonate";
+            this.checkBoxZeitausgabeAlleMonate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBoxZeitausgabeAlleMonate.Size = new System.Drawing.Size(43, 17);
+            this.checkBoxZeitausgabeAlleMonate.TabIndex = 16;
+            this.checkBoxZeitausgabeAlleMonate.Text = "Alle";
+            this.checkBoxZeitausgabeAlleMonate.UseVisualStyleBackColor = true;
+            this.checkBoxZeitausgabeAlleMonate.CheckedChanged += new System.EventHandler(this.checkBoxZeitausgabeAlleMonate_CheckedChanged);
+            // 
+            // comboBoxZeitausgabeMonat
+            // 
+            this.comboBoxZeitausgabeMonat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxZeitausgabeMonat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxZeitausgabeMonat.FormatString = "MMMM yyyy";
+            this.comboBoxZeitausgabeMonat.FormattingEnabled = true;
+            this.comboBoxZeitausgabeMonat.Location = new System.Drawing.Point(601, 46);
+            this.comboBoxZeitausgabeMonat.Name = "comboBoxZeitausgabeMonat";
+            this.comboBoxZeitausgabeMonat.Size = new System.Drawing.Size(153, 21);
+            this.comboBoxZeitausgabeMonat.TabIndex = 15;
+            this.comboBoxZeitausgabeMonat.SelectedIndexChanged += new System.EventHandler(this.comboBoxZeitausgabeMonat_SelectedIndexChanged);
+            // 
+            // checkBoxZeitausgabeAlleMitarbeiter
+            // 
+            this.checkBoxZeitausgabeAlleMitarbeiter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxZeitausgabeAlleMitarbeiter.AutoSize = true;
+            this.checkBoxZeitausgabeAlleMitarbeiter.Location = new System.Drawing.Point(552, 21);
+            this.checkBoxZeitausgabeAlleMitarbeiter.Name = "checkBoxZeitausgabeAlleMitarbeiter";
+            this.checkBoxZeitausgabeAlleMitarbeiter.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBoxZeitausgabeAlleMitarbeiter.Size = new System.Drawing.Size(43, 17);
+            this.checkBoxZeitausgabeAlleMitarbeiter.TabIndex = 14;
+            this.checkBoxZeitausgabeAlleMitarbeiter.Text = "Alle";
+            this.checkBoxZeitausgabeAlleMitarbeiter.UseVisualStyleBackColor = true;
+            this.checkBoxZeitausgabeAlleMitarbeiter.CheckedChanged += new System.EventHandler(this.checkBoxZeitausgabeAlle_CheckedChanged);
+            // 
+            // comboBoxZeitausgabeMitarbeiter
+            // 
+            this.comboBoxZeitausgabeMitarbeiter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxZeitausgabeMitarbeiter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxZeitausgabeMitarbeiter.FormattingEnabled = true;
+            this.comboBoxZeitausgabeMitarbeiter.Location = new System.Drawing.Point(601, 19);
+            this.comboBoxZeitausgabeMitarbeiter.Name = "comboBoxZeitausgabeMitarbeiter";
+            this.comboBoxZeitausgabeMitarbeiter.Size = new System.Drawing.Size(153, 21);
+            this.comboBoxZeitausgabeMitarbeiter.TabIndex = 13;
+            this.comboBoxZeitausgabeMitarbeiter.SelectedIndexChanged += new System.EventHandler(this.comboBoxZeitausgabeMitarbeiter_SelectedIndexChanged);
+            // 
+            // buttonLogout
+            // 
+            this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLogout.Location = new System.Drawing.Point(697, 476);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(75, 23);
+            this.buttonLogout.TabIndex = 14;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 511);
+            this.Controls.Add(this.buttonLogout);
+            this.Controls.Add(this.groupBoxZeitausgabe);
             this.Controls.Add(this.splitContainerManagement);
             this.MinimumSize = new System.Drawing.Size(800, 550);
             this.Name = "Form1";
@@ -286,10 +529,14 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxPersonManagement.ResumeLayout(false);
             this.groupBoxPersonManagement.PerformLayout();
+            this.groupBoxTimeManagement.ResumeLayout(false);
+            this.groupBoxTimeManagement.PerformLayout();
             this.splitContainerManagement.Panel1.ResumeLayout(false);
             this.splitContainerManagement.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerManagement)).EndInit();
             this.splitContainerManagement.ResumeLayout(false);
+            this.groupBoxZeitausgabe.ResumeLayout(false);
+            this.groupBoxZeitausgabe.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -312,8 +559,27 @@
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label labelPosition;
         private System.Windows.Forms.ComboBox comboBoxPosition;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonPersonHinzufügen;
         private System.Windows.Forms.CheckBox checkBoxPasswortZeigen;
+        private System.Windows.Forms.Label labelDatum;
+        private System.Windows.Forms.TextBox textBoxDatum;
+        private System.Windows.Forms.TextBox textBoxBis;
+        private System.Windows.Forms.Label labelBis;
+        private System.Windows.Forms.TextBox textBoxVon;
+        private System.Windows.Forms.Label labelVon;
+        private System.Windows.Forms.TextBox textBoxBeschreibung;
+        private System.Windows.Forms.Label labelBeschreibung;
+        private System.Windows.Forms.Button buttonDatumHeute;
+        private System.Windows.Forms.Button buttonArbeitszeitHinzufügen;
+        private System.Windows.Forms.Button buttonBisJetzt;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxZeitausgabe;
+        private System.Windows.Forms.GroupBox groupBoxZeitausgabe;
+        private System.Windows.Forms.ComboBox comboBoxZeitausgabeMitarbeiter;
+        private System.Windows.Forms.CheckBox checkBoxZeitausgabeAlleMitarbeiter;
+        private System.Windows.Forms.Button buttonLogout;
+        private System.Windows.Forms.ComboBox comboBoxZeitausgabeMonat;
+        private System.Windows.Forms.CheckBox checkBoxZeitausgabeAlleMonate;
     }
 }
 
