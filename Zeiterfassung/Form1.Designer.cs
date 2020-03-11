@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBoxPersonManagement = new System.Windows.Forms.GroupBox();
             this.checkBoxPasswortZeigen = new System.Windows.Forms.CheckBox();
             this.buttonPersonHinzufügen = new System.Windows.Forms.Button();
@@ -526,6 +527,7 @@
             this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.groupBoxZeitausgabe);
             this.Controls.Add(this.splitContainerManagement);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(800, 550);
             this.Name = "Form1";
             this.Text = "Fehlzeitenerfassung";
