@@ -112,7 +112,7 @@
             this.checkBoxPasswortZeigen.Location = new System.Drawing.Point(323, 99);
             this.checkBoxPasswortZeigen.Name = "checkBoxPasswortZeigen";
             this.checkBoxPasswortZeigen.Size = new System.Drawing.Size(59, 17);
-            this.checkBoxPasswortZeigen.TabIndex = 15;
+            this.checkBoxPasswortZeigen.TabIndex = 5;
             this.checkBoxPasswortZeigen.Text = "Zeigen";
             this.checkBoxPasswortZeigen.UseVisualStyleBackColor = true;
             this.checkBoxPasswortZeigen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.checkBoxPasswortZeigen_MouseDown);
@@ -125,7 +125,7 @@
             this.buttonPersonHinzufügen.Location = new System.Drawing.Point(9, 222);
             this.buttonPersonHinzufügen.Name = "buttonPersonHinzufügen";
             this.buttonPersonHinzufügen.Size = new System.Drawing.Size(167, 23);
-            this.buttonPersonHinzufügen.TabIndex = 14;
+            this.buttonPersonHinzufügen.TabIndex = 9;
             this.buttonPersonHinzufügen.Text = "Anlegen";
             this.buttonPersonHinzufügen.UseVisualStyleBackColor = true;
             this.buttonPersonHinzufügen.Click += new System.EventHandler(this.buttonAdd_Click);
@@ -139,7 +139,7 @@
             this.comboBoxPosition.Location = new System.Drawing.Point(123, 175);
             this.comboBoxPosition.Name = "comboBoxPosition";
             this.comboBoxPosition.Size = new System.Drawing.Size(254, 21);
-            this.comboBoxPosition.TabIndex = 13;
+            this.comboBoxPosition.TabIndex = 8;
             // 
             // labelPosition
             // 
@@ -166,7 +166,7 @@
             this.textBoxGehalt.Location = new System.Drawing.Point(123, 149);
             this.textBoxGehalt.Name = "textBoxGehalt";
             this.textBoxGehalt.Size = new System.Drawing.Size(254, 20);
-            this.textBoxGehalt.TabIndex = 10;
+            this.textBoxGehalt.TabIndex = 7;
             // 
             // labelGeburtsdatum
             // 
@@ -184,7 +184,7 @@
             this.textBoxGeburtsdatum.Location = new System.Drawing.Point(123, 123);
             this.textBoxGeburtsdatum.Name = "textBoxGeburtsdatum";
             this.textBoxGeburtsdatum.Size = new System.Drawing.Size(254, 20);
-            this.textBoxGeburtsdatum.TabIndex = 8;
+            this.textBoxGeburtsdatum.TabIndex = 6;
             // 
             // labelPasswort
             // 
@@ -203,7 +203,7 @@
             this.textBoxPasswort.Name = "textBoxPasswort";
             this.textBoxPasswort.PasswordChar = '*';
             this.textBoxPasswort.Size = new System.Drawing.Size(194, 20);
-            this.textBoxPasswort.TabIndex = 6;
+            this.textBoxPasswort.TabIndex = 4;
             // 
             // labelEmail
             // 
@@ -221,7 +221,7 @@
             this.textBoxEmail.Location = new System.Drawing.Point(123, 71);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(254, 20);
-            this.textBoxEmail.TabIndex = 4;
+            this.textBoxEmail.TabIndex = 3;
             // 
             // textBoxVorName
             // 
@@ -230,7 +230,7 @@
             this.textBoxVorName.Location = new System.Drawing.Point(123, 45);
             this.textBoxVorName.Name = "textBoxVorName";
             this.textBoxVorName.Size = new System.Drawing.Size(254, 20);
-            this.textBoxVorName.TabIndex = 3;
+            this.textBoxVorName.TabIndex = 1;
             // 
             // textBoxName
             // 
@@ -239,7 +239,7 @@
             this.textBoxName.Location = new System.Drawing.Point(123, 19);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(254, 20);
-            this.textBoxName.TabIndex = 2;
+            this.textBoxName.TabIndex = 0;
             // 
             // labelVorname
             // 
@@ -291,7 +291,7 @@
             this.button1.Location = new System.Drawing.Point(308, 45);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(54, 23);
-            this.button1.TabIndex = 11;
+            this.button1.TabIndex = 3;
             this.button1.Text = "08:00";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -302,7 +302,7 @@
             this.buttonBisJetzt.Location = new System.Drawing.Point(308, 71);
             this.buttonBisJetzt.Name = "buttonBisJetzt";
             this.buttonBisJetzt.Size = new System.Drawing.Size(54, 23);
-            this.buttonBisJetzt.TabIndex = 10;
+            this.buttonBisJetzt.TabIndex = 5;
             this.buttonBisJetzt.Text = "Jetzt";
             this.buttonBisJetzt.UseVisualStyleBackColor = true;
             this.buttonBisJetzt.Click += new System.EventHandler(this.buttonBisJetzt_Click);
@@ -314,7 +314,7 @@
             this.buttonArbeitszeitHinzufügen.Location = new System.Drawing.Point(11, 222);
             this.buttonArbeitszeitHinzufügen.Name = "buttonArbeitszeitHinzufügen";
             this.buttonArbeitszeitHinzufügen.Size = new System.Drawing.Size(167, 23);
-            this.buttonArbeitszeitHinzufügen.TabIndex = 9;
+            this.buttonArbeitszeitHinzufügen.TabIndex = 7;
             this.buttonArbeitszeitHinzufügen.Text = "Hinzufügen";
             this.buttonArbeitszeitHinzufügen.UseVisualStyleBackColor = true;
             this.buttonArbeitszeitHinzufügen.Click += new System.EventHandler(this.buttonArbeitszeitHinzufügen_Click);
@@ -325,7 +325,7 @@
             this.buttonDatumHeute.Location = new System.Drawing.Point(308, 17);
             this.buttonDatumHeute.Name = "buttonDatumHeute";
             this.buttonDatumHeute.Size = new System.Drawing.Size(54, 23);
-            this.buttonDatumHeute.TabIndex = 8;
+            this.buttonDatumHeute.TabIndex = 1;
             this.buttonDatumHeute.Text = "Heute";
             this.buttonDatumHeute.UseVisualStyleBackColor = true;
             this.buttonDatumHeute.Click += new System.EventHandler(this.buttonDatumHeute_Click);
@@ -339,7 +339,7 @@
             this.textBoxBeschreibung.Multiline = true;
             this.textBoxBeschreibung.Name = "textBoxBeschreibung";
             this.textBoxBeschreibung.Size = new System.Drawing.Size(244, 92);
-            this.textBoxBeschreibung.TabIndex = 7;
+            this.textBoxBeschreibung.TabIndex = 6;
             // 
             // labelBeschreibung
             // 
@@ -357,7 +357,7 @@
             this.textBoxBis.Location = new System.Drawing.Point(118, 71);
             this.textBoxBis.Name = "textBoxBis";
             this.textBoxBis.Size = new System.Drawing.Size(184, 20);
-            this.textBoxBis.TabIndex = 5;
+            this.textBoxBis.TabIndex = 4;
             // 
             // labelBis
             // 
@@ -375,7 +375,7 @@
             this.textBoxVon.Location = new System.Drawing.Point(118, 45);
             this.textBoxVon.Name = "textBoxVon";
             this.textBoxVon.Size = new System.Drawing.Size(184, 20);
-            this.textBoxVon.TabIndex = 3;
+            this.textBoxVon.TabIndex = 2;
             // 
             // labelVon
             // 
@@ -393,7 +393,7 @@
             this.textBoxDatum.Location = new System.Drawing.Point(118, 19);
             this.textBoxDatum.Name = "textBoxDatum";
             this.textBoxDatum.Size = new System.Drawing.Size(184, 20);
-            this.textBoxDatum.TabIndex = 1;
+            this.textBoxDatum.TabIndex = 0;
             // 
             // labelDatum
             // 
@@ -424,7 +424,7 @@
             this.splitContainerManagement.Panel2MinSize = 50;
             this.splitContainerManagement.Size = new System.Drawing.Size(760, 261);
             this.splitContainerManagement.SplitterDistance = 388;
-            this.splitContainerManagement.TabIndex = 2;
+            this.splitContainerManagement.TabIndex = 0;
             // 
             // textBoxZeitausgabe
             // 
@@ -436,7 +436,8 @@
             this.textBoxZeitausgabe.Name = "textBoxZeitausgabe";
             this.textBoxZeitausgabe.ReadOnly = true;
             this.textBoxZeitausgabe.Size = new System.Drawing.Size(540, 139);
-            this.textBoxZeitausgabe.TabIndex = 12;
+            this.textBoxZeitausgabe.TabIndex = 4;
+            this.textBoxZeitausgabe.TabStop = false;
             // 
             // groupBoxZeitausgabe
             // 
@@ -451,7 +452,7 @@
             this.groupBoxZeitausgabe.Location = new System.Drawing.Point(12, 279);
             this.groupBoxZeitausgabe.Name = "groupBoxZeitausgabe";
             this.groupBoxZeitausgabe.Size = new System.Drawing.Size(760, 191);
-            this.groupBoxZeitausgabe.TabIndex = 13;
+            this.groupBoxZeitausgabe.TabIndex = 1;
             this.groupBoxZeitausgabe.TabStop = false;
             this.groupBoxZeitausgabe.Text = "Zeitausgabe";
             // 
@@ -463,7 +464,7 @@
             this.checkBoxZeitausgabeAlleMonate.Name = "checkBoxZeitausgabeAlleMonate";
             this.checkBoxZeitausgabeAlleMonate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBoxZeitausgabeAlleMonate.Size = new System.Drawing.Size(43, 17);
-            this.checkBoxZeitausgabeAlleMonate.TabIndex = 16;
+            this.checkBoxZeitausgabeAlleMonate.TabIndex = 2;
             this.checkBoxZeitausgabeAlleMonate.Text = "Alle";
             this.checkBoxZeitausgabeAlleMonate.UseVisualStyleBackColor = true;
             this.checkBoxZeitausgabeAlleMonate.CheckedChanged += new System.EventHandler(this.checkBoxZeitausgabeAlleMonate_CheckedChanged);
@@ -477,7 +478,7 @@
             this.comboBoxZeitausgabeMonat.Location = new System.Drawing.Point(601, 46);
             this.comboBoxZeitausgabeMonat.Name = "comboBoxZeitausgabeMonat";
             this.comboBoxZeitausgabeMonat.Size = new System.Drawing.Size(153, 21);
-            this.comboBoxZeitausgabeMonat.TabIndex = 15;
+            this.comboBoxZeitausgabeMonat.TabIndex = 3;
             this.comboBoxZeitausgabeMonat.SelectedIndexChanged += new System.EventHandler(this.comboBoxZeitausgabeMonat_SelectedIndexChanged);
             // 
             // checkBoxZeitausgabeAlleMitarbeiter
@@ -488,7 +489,7 @@
             this.checkBoxZeitausgabeAlleMitarbeiter.Name = "checkBoxZeitausgabeAlleMitarbeiter";
             this.checkBoxZeitausgabeAlleMitarbeiter.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBoxZeitausgabeAlleMitarbeiter.Size = new System.Drawing.Size(43, 17);
-            this.checkBoxZeitausgabeAlleMitarbeiter.TabIndex = 14;
+            this.checkBoxZeitausgabeAlleMitarbeiter.TabIndex = 0;
             this.checkBoxZeitausgabeAlleMitarbeiter.Text = "Alle";
             this.checkBoxZeitausgabeAlleMitarbeiter.UseVisualStyleBackColor = true;
             this.checkBoxZeitausgabeAlleMitarbeiter.CheckedChanged += new System.EventHandler(this.checkBoxZeitausgabeAlle_CheckedChanged);
@@ -501,7 +502,7 @@
             this.comboBoxZeitausgabeMitarbeiter.Location = new System.Drawing.Point(601, 19);
             this.comboBoxZeitausgabeMitarbeiter.Name = "comboBoxZeitausgabeMitarbeiter";
             this.comboBoxZeitausgabeMitarbeiter.Size = new System.Drawing.Size(153, 21);
-            this.comboBoxZeitausgabeMitarbeiter.TabIndex = 13;
+            this.comboBoxZeitausgabeMitarbeiter.TabIndex = 1;
             this.comboBoxZeitausgabeMitarbeiter.SelectedIndexChanged += new System.EventHandler(this.comboBoxZeitausgabeMitarbeiter_SelectedIndexChanged);
             // 
             // buttonLogout
@@ -510,7 +511,7 @@
             this.buttonLogout.Location = new System.Drawing.Point(697, 476);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(75, 23);
-            this.buttonLogout.TabIndex = 14;
+            this.buttonLogout.TabIndex = 2;
             this.buttonLogout.Text = "Logout";
             this.buttonLogout.UseVisualStyleBackColor = true;
             this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
