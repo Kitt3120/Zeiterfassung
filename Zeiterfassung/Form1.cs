@@ -33,7 +33,7 @@ namespace Zeiterfassung
             await LoadPersons();
             new FormLogin(OnAuthenticated).ShowDialog(this);
 
-            //Position als Auswahl zur ComboBox hinzufügen und ersten Eintrag standardmäßig auswählen
+            //Positionen dynamisch als Auswahl zur ComboBox hinzufügen und ersten Eintrag standardmäßig auswählen
             Array.ForEach((Position[])Enum.GetValues(typeof(Position)), en => comboBoxPosition.Items.Add(en));
             if (comboBoxPosition.Items.Count > 0)
                 comboBoxPosition.SelectedIndex = 0;
