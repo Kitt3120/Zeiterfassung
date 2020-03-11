@@ -42,7 +42,11 @@ namespace Zeiterfassung
                 return;
 
             if (!HashUtils.Verify(password, user.PasswordHash))
+            {
+                textBoxPassword.Clear();
                 MessageBox.Show("Das Passwort war ungültig!", "Ungültiges Passwort", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPassword.Focus();
+            }
             else
             {
                 _verified = true;
