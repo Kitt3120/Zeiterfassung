@@ -17,39 +17,50 @@ using Zeiterfassung.Utils;
 
 namespace Zeiterfassung
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
         private Person _user;
 
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Vorbereitungen beim Laden der Form.
+        /// Öffnet auch das Login-Fenster. OnAuthenticated() wird als Callback benutzt.
+        /// </summary>
         private async void Form1_Load(object sender, EventArgs e)
         {
-            HideComponents();
+            HideComponents(); //Alle Komponenten verstecken, bevor sich ein Benutzer eingeloggt hat
 
-            await LoadPersons();
-            new FormLogin(OnAuthenticated).ShowDialog(this);
+            await LoadPersons(); //Personen aus Datei auslesen
+            new FormLogin(OnAuthenticated).ShowDialog(this); //Login-Fenster anzeigen
 
-            //Positionen dynamisch als Auswahl zur ComboBox hinzufügen und ersten Eintrag standardmäßig auswählen
+            //Positionen dynamisch als Auswahl zur ComboBox hinzufügen und ersten Eintrag standardmäßig auswählen.
+            //Somit muss kein Code angepasst werden, wenn man eine Position zum Enum hinzufügt.
             Array.ForEach((Position[])Enum.GetValues(typeof(Position)), en => comboBoxPosition.Items.Add(en));
             if (comboBoxPosition.Items.Count > 0)
                 comboBoxPosition.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Wird als Callback benutzt, wenn der Nutzer sich angemeldet hat
+        /// </summary>
+        /// <param name="person">Die Person, die sich eingeloggt hat</param>
         private void OnAuthenticated(Person person)
         {
             _user = person;
             Text = $"Fehlzeitenerfassung (Eingeloggt als {_user.ToString()})";
 
-            ShowComponents();
+            ShowComponents(); //Komponenten wieder anzeigen
 
+            //Einige Komponenten aktualisieren
             RenewZeitausgabeComboBoxMitarbeiter();
             RenewZeitausgabeComboBoxMonat();
             RefreshZeitausgabeBeschreibung();
 
+            //Anhand der Position des Benutzers bestimmte Bereiche des UI verstecken / anzeigen
             switch (_user.Position)
             {
                 case Position.Mitarbeiter:
@@ -73,13 +84,39 @@ namespace Zeiterfassung
             }
         }
 
+        /// <summary>
+        /// Versteckt alle Komponenten der Form
+        /// </summary>
+        private void HideComponents()
+        {
+            foreach (var control in Controls)
+                ((Control)control).Visible = false;
+        }
+
+        /// <summary>
+        /// Zeigt alle Komponenten der Form
+        /// </summary>
+        private void ShowComponents()
+        {
+            foreach (var control in Controls)
+                if (control is Control)
+                    ((Control)control).Visible = true;
+        }
+
+        /// <summary>
+        /// Ließt Personendaten aus der Personen.csv-Datei aus und konvertiert diese in Personen-Objekte.
+        /// Es wird ein Storage<Person> im StorageContainer mit dem Schlüssel "Personen" angelegt, in denen die Personen zur Verfügung stehen.
+        /// </summary>
         private async Task LoadPersons()
         {
             Person[] persons = CSVHandlers.CSVHandlerPerson.ParseAll(await DataProviders.FileDataProvider.ProvideAsync("Assets/Personen.csv")).ToArray();
-            Storage<Person> personStorage = StorageContainer.CreateStorage<Person>("Personen"); //Potentially overwrite old storage only after successfull parsing
+            Storage<Person> personStorage = StorageContainer.CreateStorage<Person>("Personen"); //Beim mehrfachen Aufrufen von LoadPersons() wird der alte Storage verworfen. Die Rückgabe ist also immer ein neuer, leerer Storage.
             Array.ForEach(persons, person => personStorage.Add(person));
         }
 
+        /// <summary>
+        /// Schreibt die Daten der Personen aus dem Storage<Person> des StorageContainers in die Personen.csv-Datei.
+        /// </summary>
         private async Task SavePersons() => await DataWriters.FileDataWriter.WriteAllAsync("Assets/Personen.csv", CSVHandlers.CSVHandlerPerson.RevertAll(StorageContainer.Get<Person>().Values));
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -89,21 +126,11 @@ namespace Zeiterfassung
             new FormLogin(OnAuthenticated).ShowDialog(this);
         }
 
-        private void HideComponents()
-        {
-            foreach (var control in Controls)
-                ((Control)control).Visible = false;
-        }
-
-        private void ShowComponents()
-        {
-            foreach (var control in Controls)
-                if (control is Control)
-                    ((Control)control).Visible = true;
-        }
-
         //Person Management
 
+        /// <summary>
+        /// Fügt, falls alle Werte korrekt, eine neue Person hinzu
+        /// </summary>
         private async void buttonAdd_Click(object sender, EventArgs e)
         {
             string vorname, name, email, passwort;
@@ -204,6 +231,9 @@ namespace Zeiterfassung
 
         //Time Management
 
+        /// <summary>
+        /// Fügt, falls alle Werte korrekt, einen Arbeitszeit-Eintrag zum eingeloggten Benutzer hinzu
+        /// </summary>
         private async void buttonArbeitszeitHinzufügen_Click(object sender, EventArgs e)
         {
             DateTime datum, anfang, ende;
@@ -234,6 +264,12 @@ namespace Zeiterfassung
             }
             beschreibung = textBoxBeschreibung.Text;
 
+            if (anfang.Ticks - ende.Ticks > 0)
+            {
+                MessageBox.Show("Ihre Arbeitszeit kann nicht enden, bevor sie gestartet hat.", "Fehlerhafte Angabe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             _user.AddArbeitszeit(datum, anfang, ende, beschreibung);
             await SavePersons();
             RenewZeitausgabeComboBoxMonat();
@@ -249,6 +285,9 @@ namespace Zeiterfassung
 
         //Zeitausgabe
 
+        /// <summary>
+        /// Erneuert die Einträge in der Mitarbeiter-Combobox.
+        /// </summary>
         private void RenewZeitausgabeComboBoxMitarbeiter()
         {
             comboBoxZeitausgabeMitarbeiter.Items.Clear();
@@ -284,6 +323,10 @@ namespace Zeiterfassung
             }
         }
 
+        /// <summary>
+        /// Erneuert die Einträge in der Monat-Combobox.
+        /// Anhand einer LINQ-Abfrage werden alle entsprechenden Monate bestimmt.
+        /// </summary>
         private void RenewZeitausgabeComboBoxMonat()
         {
             Person person = _user;
@@ -293,7 +336,14 @@ namespace Zeiterfassung
             if (person == null)
                 return;
 
-            DateTime[] dates = StorageContainer.Get<Person>().Values.Where(p => checkBoxZeitausgabeAlleMitarbeiter.Checked || p == person).SelectMany(p => p.Arbeitszeiten).Select(arbeitszeit => arbeitszeit.Datum).Select(arbeitszeit => Convert.ToDateTime(arbeitszeit.ToString("MM.yyyy"))).Distinct().OrderBy(date => date.Year).ThenBy(date => date.Month).ToArray();
+            DateTime[] dates = StorageContainer.Get<Person>().Values
+                                                             .Where(p => checkBoxZeitausgabeAlleMitarbeiter.Checked || p == person)
+                                                             .SelectMany(p => p.Arbeitszeiten).Select(arbeitszeit => arbeitszeit.Datum)
+                                                             .Select(arbeitszeit => Convert.ToDateTime(arbeitszeit.ToString("MM.yyyy")))
+                                                             .Distinct()
+                                                             .OrderBy(date => date.Year)
+                                                             .ThenBy(date => date.Month)
+                                                             .ToArray();
 
             comboBoxZeitausgabeMonat.Items.Clear();
             Array.ForEach(dates, date => comboBoxZeitausgabeMonat.Items.Add(date));
@@ -302,6 +352,10 @@ namespace Zeiterfassung
                 comboBoxZeitausgabeMonat.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Erneuert die Ausgabe in der Zeitausgabe-Textbox.
+        /// Anhand von LINQ-Abfragen werden alle entsprechenden Arbeitszeiten bestimmt.
+        /// </summary>
         private void RefreshZeitausgabeBeschreibung()
         {
             textBoxZeitausgabe.Clear();
@@ -309,15 +363,17 @@ namespace Zeiterfassung
             if (comboBoxZeitausgabeMonat.SelectedItem == null && !checkBoxZeitausgabeAlleMonate.Checked)
                 return;
 
-            Person[] personen;
+            Person[] personen; //Array, welcher nachher alle zu berücksichtigenden Personen enthält
 
-            if (checkBoxZeitausgabeAlleMitarbeiter.Checked)
+            if (checkBoxZeitausgabeAlleMitarbeiter.Checked) //Ist die Checkbox für alle Mitarbeiter aktiviert, werden alle Mitarbeiter (Manager ausgeschlossen) berücksichtigt.
             {
-                List<Person> personenTmp = StorageContainer.Get<Person>().Values.Where(person => person.Position == Position.Mitarbeiter).ToList();
+                List<Person> personenTmp = StorageContainer.Get<Person>().Values
+                                                                         .Where(person => person.Position == Position.Mitarbeiter)
+                                                                         .ToList();
                 personenTmp.Add(_user);
                 personen = personenTmp.ToArray();
             }
-            else
+            else //Ansonsten wird nur die ausgewählte Person berücksichtigt
             {
                 Person person = _user;
                 if (_user.Position == Position.Manager)
@@ -331,6 +387,8 @@ namespace Zeiterfassung
 
             Dictionary<Person, Arbeitszeit[]> arbeitszeiten = new Dictionary<Person, Arbeitszeit[]>();
 
+            //Nun werden die Arbeitszeiten von allen zu berücksichtigenden Personen sortiert gesammelt.
+            //Hierbei wird berücksichtigt, welcher Monat gewollt ist, oder ob alle Monate berücksichtigt werden sollen. (Siehe .Where)
             foreach (Person person in personen)
                 arbeitszeiten.Add(person, person.Arbeitszeiten
                     .Where(arbeitszeit => checkBoxZeitausgabeAlleMonate.Checked || arbeitszeit.Datum.Month == ((DateTime)comboBoxZeitausgabeMonat.SelectedItem).Month)
@@ -341,6 +399,10 @@ namespace Zeiterfassung
                     .ThenBy(arbeitszeit => arbeitszeit.Zeitspanne.Ticks)
                     .ToArray());
 
+            //Anschließend werden die Arbeitszeiten der Personen ausgegeben.
+            //Hierbei gibt es unterschiedliche Formate:
+            // - eine detaillierte Ausgabe, wenn es sich um eine Person handelt
+            // - eine zusammenfassende Ausgabe, wenn es sich um mehrere Personen handelt
             if (personen.Length == 1)
             {
                 Person person = personen[0];
@@ -353,13 +415,13 @@ namespace Zeiterfassung
                     foreach (Arbeitszeit arbeitszeit in personenArbeitszeiten)
                         textBoxZeitausgabe.Text += $"{arbeitszeit.Datum.Day}. {arbeitszeit.Datum.ToString("MMMM")} {arbeitszeit.Datum.Year} - {arbeitszeit.Zeitspanne.TotalHours.ToString("#.##")} Std. von {arbeitszeit.Anfang.ToString("HH:mm:ss")} bis {arbeitszeit.Ende.ToString("HH:mm:ss")}: {arbeitszeit.Beschreibung}{Environment.NewLine}";
 
-                textBoxZeitausgabe.Text += $"{Environment.NewLine}Gesamt: {personenArbeitszeiten.Sum(arbeitszeit => arbeitszeit.Zeitspanne.TotalHours).ToString("#.##")} Std.";
+                textBoxZeitausgabe.Text += $"{Environment.NewLine}Gesamt: {(personenArbeitszeiten.Length == 0 ? "0,00" : personenArbeitszeiten.Sum(arbeitszeit => arbeitszeit.Zeitspanne.TotalHours).ToString("#.##"))} Std.";
             }
             else
             {
                 foreach (Person person in personen)
                     textBoxZeitausgabe.Text += $"{person.ToString()} Gesamt: {(arbeitszeiten[person].Length == 0 ? "0,00" : arbeitszeiten[person].Sum(arbeitszeit => arbeitszeit.Zeitspanne.TotalHours).ToString("#.##"))} Std.{Environment.NewLine}";
-                textBoxZeitausgabe.Text += $"{Environment.NewLine}Gesamt: {personen.Sum(person => arbeitszeiten[person].Sum(arbeitszeit => arbeitszeit.Zeitspanne.TotalHours)).ToString("#.##")} Std.";
+                textBoxZeitausgabe.Text += $"{Environment.NewLine}Gesamt: {(personen.SelectMany(person => person.Arbeitszeiten).ToArray().Length == 0 ? "0,00" : personen.Sum(person => arbeitszeiten[person].Sum(arbeitszeit => arbeitszeit.Zeitspanne.TotalHours)).ToString("#.##"))} Std.";
             }
         }
 

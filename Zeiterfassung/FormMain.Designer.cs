@@ -1,6 +1,6 @@
 ﻿namespace Zeiterfassung
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.groupBoxPersonManagement = new System.Windows.Forms.GroupBox();
             this.checkBoxPasswortZeigen = new System.Windows.Forms.CheckBox();
             this.buttonPersonHinzufügen = new System.Windows.Forms.Button();
