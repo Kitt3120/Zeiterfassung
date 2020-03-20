@@ -531,7 +531,7 @@
             this.MinimumSize = new System.Drawing.Size(800, 550);
             this.Name = "Form1";
             this.Text = "Fehlzeitenerfassung";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.groupBoxPersonManagement.ResumeLayout(false);
             this.groupBoxPersonManagement.PerformLayout();
             this.groupBoxTimeManagement.ResumeLayout(false);

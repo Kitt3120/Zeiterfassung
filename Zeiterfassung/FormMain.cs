@@ -30,7 +30,7 @@ namespace Zeiterfassung
         /// Vorbereitungen beim Laden der Form.
         /// Öffnet auch das Login-Fenster. OnAuthenticated() wird als Callback benutzt.
         /// </summary>
-        private async void Form1_Load(object sender, EventArgs e)
+        private async void FormMain_Load(object sender, EventArgs e)
         {
             HideComponents(); //Alle Komponenten verstecken, bevor sich ein Benutzer eingeloggt hat
 
