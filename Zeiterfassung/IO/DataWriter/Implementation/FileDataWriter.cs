@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 namespace Zeiterfassung.IO.DataWriter.Implementation
 {
+    //Dokumentation siehe IDataWriter
     public class FileDataWriter : IDataWriter<string>
     {
         public void Write(string key, string obj, string[] options = null)

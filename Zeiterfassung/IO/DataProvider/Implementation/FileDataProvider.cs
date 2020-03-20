@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Zeiterfassung.IO.DataProvider.Implementation
 {
+    //Dokumentation siehe IDataProvider
     public class FileDataProvider : IDataProvider<string[]>
     {
         public string[] Provide(string key, string[] options = null)

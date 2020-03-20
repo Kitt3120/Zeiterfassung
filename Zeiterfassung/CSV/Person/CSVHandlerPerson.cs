@@ -7,6 +7,7 @@ using Zeiterfassung.Models.Person;
 
 namespace Zeiterfassung.CSV.Person
 {
+    //Dokumentation siehe ICSVHandler
     public class CSVHandlerPerson : ICSVHandler<Models.Person.Person>
     {
         public Models.Person.Person Parse(string line)
