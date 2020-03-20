@@ -10,6 +10,11 @@ namespace Zeiterfassung.Utils
 {
     public static class HashUtils
     {
+        /// <summary>
+        /// Generiert einen Hash
+        /// </summary>
+        /// <param name="input">Der zu verwendene Input</param>
+        /// <returns></returns>
         public static string GenerateHash(string input)
         {
             byte[] salt = new byte[16];
@@ -21,6 +26,12 @@ namespace Zeiterfassung.Utils
             return Convert.ToBase64String(hashBytes);
         }
 
+        /// <summary>
+        /// Überprüft einen Hash
+        /// </summary>
+        /// <param name="input">Der zu verwendene Input</param>
+        /// <param name="savedHash">Der existierende Hash zum Abgleichen</param>
+        /// <returns></returns>
         public static bool Verify(string input, string savedHash)
         {
             byte[] hashBytes = Convert.FromBase64String(savedHash);
