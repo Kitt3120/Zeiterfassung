@@ -16,6 +16,8 @@ namespace Zeiterfassung.Storage
     {
         private List<T> _list;
 
+        public T[] Values => _list.ToArray();
+
         public T this[int key]
         {
             get { return _list[key]; }
@@ -29,8 +31,6 @@ namespace Zeiterfassung.Storage
         public void Remove(T value) => _list.Remove(value);
 
         public void RemoveAt(int index) => _list.RemoveAt(index);
-
-        public T[] Values => _list.ToArray();
 
         public Type Type { get { return GetType().GenericTypeArguments[0]; } }
 

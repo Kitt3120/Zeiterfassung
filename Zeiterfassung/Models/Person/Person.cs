@@ -16,11 +16,6 @@ namespace Zeiterfassung.Models.Person
         public string PasswordHash { get; }
         public double Gehalt { get; }
 
-        public override string ToString()
-        {
-            return $"{Name} {Vorname}";
-        }
-
         public ReadOnlyCollection<Arbeitszeit.Arbeitszeit> Arbeitszeiten { get => _arbeitszeiten.AsReadOnly(); }
 
         private List<Arbeitszeit.Arbeitszeit> _arbeitszeiten;
@@ -52,5 +47,10 @@ namespace Zeiterfassung.Models.Person
         public void RemoveArbeitszeiten(DateTime datum, DateTime anfang, DateTime ende) => _arbeitszeiten.RemoveAll(arbeitszeit => arbeitszeit.Datum == datum.Date && arbeitszeit.Anfang == anfang && arbeitszeit.Ende == ende);
 
         public void RemoveArbeitszeiten() => _arbeitszeiten.Clear();
+
+        public override string ToString()
+        {
+            return $"{Name} {Vorname}";
+        }
     }
 }

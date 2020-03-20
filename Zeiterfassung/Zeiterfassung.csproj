@@ -118,9 +118,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Container\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Assets\Personen.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
